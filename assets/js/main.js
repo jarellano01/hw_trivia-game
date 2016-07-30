@@ -1,7 +1,7 @@
 $(function(){
-	var triviaData = "https://pastebin.com/raw/QRGzxxEy";
+	var triviaData = "assets/json/trivia-list.json";
 
-	$.ajax({url: triviaData, method: 'GET'}).done(function(response) {
+	$.ajax({url: triviaData, dataType: "jsonp", method: 'GET'}).done(function(response) {
 	     $("#body").html(triviaData[33]);
 	     console.log(response);
 
