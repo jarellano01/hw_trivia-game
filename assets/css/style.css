@@ -1,0 +1,24 @@
+#trivia-container {
+	background-color: grey;
+	height: 400px;
+}
+#trivia-container *{
+	color: black;
+	text-align: center;
+}
+#trivia-container .row {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#timer {
+	background-color: white;
+	width: 50%;
+	margin: auto;
+	border: 2px solid black;
+}
+#result {
+	/*display: none;*/
+}
+#answers * {
+	/*text-align: left !Important;*/
+}
