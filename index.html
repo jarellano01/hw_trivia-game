@@ -51,38 +51,36 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="trivia-container">
-                <div class="row">
-                    <h2>Game Title</h2>
+                <div class="row" id="game-title">
+                    <h2>Trivia Game</h2>
                 </div>
                 <div class="row" id="timer">
-                    <div>Time Left: <span id="t-left">18 seconds</span></div>
+                    <div>Time Left: <span id="t-left">30</span> seconds</div>
                 </div>
                 <div class="row" id="question">
                     <div id="cur-question">Question</div>
                 </div>
                 <div class="row" id="body">
                     <div id="answers">
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optradio">Option 1</label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optradio">Option 2</label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optradio">Option 3</label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="optradio">Option 4</label>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="row" id="body">
-                    <div id="result">Result</div>
+                    <div id="result">
+                    	
+                    </div>
                 </div>
+                <div class="row" id="final">
+                    <div>All Done!!!</div>
+                    <div>Here's how you did:</div>
+                    <div>Correct Answers: <span id="score-correct"></span></div>
+                    <div>Incorrect Answers: <span id="score-incorrect"></span></div>
+                    <div>Unanswered: <span id="score-unanswered"></span></div>
+                    <button type="button" id="restart" class="btn btn-primary">Start Over</button>
+                </div>
+                <div class="row" id="initial-screen">
+					<button type="button" id="start" class="btn btn-primary">Start</button>
+                <div>
             </div>
         </div>
     </div>

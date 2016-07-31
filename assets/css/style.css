@@ -19,6 +19,25 @@
 #result {
 	/*display: none;*/
 }
+#answers{
+	width: 30%;
+	margin: auto;
+}
 #answers * {
-	/*text-align: left !Important;*/
+
+	text-align: left !Important;
+}
+#result {
+	width: 50%;
+	margin: auto;
+}
+
+#initial-screen {
+	padding-top: 100px;
+}
+#timer, #question, #body{
+	display: none;
+}
+#final {
+	display: none;
 }
