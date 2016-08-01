@@ -1,3 +1,6 @@
+body{
+	background-color: black;
+}
 #trivia-container {
 	background-color: grey;
 	height: 400px;

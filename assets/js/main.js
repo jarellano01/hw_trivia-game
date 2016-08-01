@@ -4,7 +4,9 @@ $(function(){
 	var scoreCorrect=0;
 	var scoreIncorrect=0;
 	var scoreUnanswered=0;
-	var questionsLeft = 3;
+	var questionsLeft = 8;
+	var curQuestion = undefined;
+	var randId = 0;
 
 	$("#start").click(function(){
 		$("#initial-screen").hide();
@@ -35,34 +37,34 @@ $(function(){
 	}
 
 	function newQuestion(){
-		timeLeft = 30;
+		timeLeft = 10;
 		interval = setInterval(updateCountDown, 1000);
 
 		var triviaData = "assets/json/trivia-list.json";
 		$("#result").hide();
 		$("#answers").fadeIn("slow");
 		$.ajax({url: triviaData, method: 'GET'}).done(function(response) {
-			var randId = Math.floor(Math.random() * response.length);
+			curQuestion = response;
+			randId = Math.floor(Math.random() * curQuestion.length);
 
 
 			$('#answers').empty();
-		    $("#cur-question").html(response[randId].question);
+		    $("#cur-question").html(curQuestion[randId].question);
 
-		    var a1 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='A'>" + response[randId].A + "</label></div>");
-		    var a2 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='B'>" + response[randId].B + "</label></div>");
-		    var a3 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='C'>" + response[randId].C + "</label></div>");
-		    var a4 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='D'>" + response[randId].D + "</label></div>");
+		    var a1 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='A'>" + curQuestion[randId].A + "</label></div>");
+		    var a2 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='B'>" + curQuestion[randId].B + "</label></div>");
+		    var a3 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='C'>" + curQuestion[randId].C + "</label></div>");
+		    var a4 = $("<div class='radio'><label><input type='radio' name='optradio' class='option' id='D'>" + curQuestion[randId].D + "</label></div>");
 
 		    $("#answers").append(a1).append(a2).append(a3).append(a4);
 
 		    $(".option").click(function(){
 		    	console.log(this);
 		    	console.log($(this).attr("id"));
-		    	console.log(response[randId].answer)
+		    	console.log(curQuestion[randId].answer)
 		    	
-		    	var a = response[randId].answer;
 
-		    	if($(this).attr("id") == response[randId].answer)
+		    	if($(this).attr("id") == curQuestion[randId].answer)
 		    	{
 		    		var result = "winner";
 		    		var shownResult = $("<div>Correct!!!</div>");
@@ -71,7 +73,7 @@ $(function(){
 		    	else{
 		    		var result = "loser";
 		    		var shownResult = $("<div>Nope!!!</div>")
-		    		var correctAnswer = $("<div>The correct answer is " + response[randId][a] + ".</div>");
+		    		var correctAnswer = $("<div>The correct answer is " + curQuestion[randId][curQuestion[randId].answer] + ".</div>");
 		    		scoreIncorrect++;
 		    	}
 		    	$("#result").empty();
@@ -87,8 +89,11 @@ $(function(){
 	function updateCountDown(){
 		$("#t-left").text(timeLeft);
 		timeLeft --;
-		if(timeLeft<=0){
-			answersUnanswered++;
+		if(timeLeft<0){
+			scoreUnanswered++;
+			$("#result").empty();
+			var tooLate = $("<div>Too Late!!! The Correct answer is " + curQuestion[randId][curQuestion[randId].answer] + ".</div>");
+			$("#result").append(tooLate);
 			submitAnswer("loser");
 		}
 	}
@@ -116,5 +121,4 @@ $(function(){
 			setTimeout(newQuestion, 5000);
 		}
 	}
-	
 })
