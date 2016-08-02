@@ -41,11 +41,11 @@ $(function(){
 		interval = setInterval(updateCountDown, 1000);
 
 		var triviaData = "assets/json/trivia-list.json";
-		var onlineTriviaData = "http://pastebin.com/raw/QRGzxxEy/";
+		var onlineTriviaData = "https://pastebin.com/raw/QRGzxxEy/";
 		$("#result").hide();
 		$("#answers").fadeIn("slow");
-		$.ajax({url: onlineTriviaData, method: 'GET'}).done(function(response) {
-			curQuestion = JSON.parse(response);
+		$.ajax({dataType: "json", url: onlineTriviaData, method: 'GET'}).done(function(response) {
+			curQuestion = response;
 			randId = Math.floor(Math.random() * curQuestion.length);
 
 
