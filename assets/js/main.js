@@ -44,7 +44,7 @@ $(function(){
 		var onlineTriviaData = "https://pastebin.com/raw/QRGzxxEy/";
 		$("#result").hide();
 		$("#answers").fadeIn("slow");
-		$.ajax({dataType: "json", url: onlineTriviaData, method: 'GET'}).done(function(response) {
+		$.ajax({dataType: "json", url: triviaData, method: 'GET'}).done(function(response) {
 			curQuestion = response;
 			randId = Math.floor(Math.random() * curQuestion.length);
 
