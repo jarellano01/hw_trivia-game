@@ -1,30 +1,11 @@
-# README #
-# Trivia Game #
+# README
+# Trivia Game
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Here's a fun trivia game for all of you. 
 
-### What is this repository for? ###
+To play, go to the live link below: 
+https://jarellano01.github.io/hw_trivia-game/
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+## Technical Details
+- Using Ajax to load json object stored in `json/trivia-list.json` which holds hundreds of trivia questions. 
+- Main javascript logic for the game may be found under 'js/main.js'
