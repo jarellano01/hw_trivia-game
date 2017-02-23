@@ -9,3 +9,4 @@ https://jarellano01.github.io/hw_trivia-game/
 ## Technical Details
 - Using Ajax to load json object stored in `json/trivia-list.json` which holds hundreds of trivia questions. 
 - Main javascript logic for the game may be found under 'js/main.js'
+- Using the giphy api to randomly generate a new giphy based on a correct or incorrect answer
